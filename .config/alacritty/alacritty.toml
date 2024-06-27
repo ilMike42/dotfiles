@@ -1,0 +1,12 @@
+import = [
+	  "~/.config/alacritty/catppuccin-macchiato.toml"
+]
+
+
+[font]
+size = 18.0
+normal = { family = "MesloLGM Nerd Font", style = "Regular"}
+
+[keyboard]
+bindings = [{ key = "N", mods = "Control|Shift", action = "CreateNewWindow" },]
+
