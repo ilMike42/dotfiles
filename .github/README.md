@@ -23,6 +23,7 @@ The entire project is based on a [article](https://harfangk.github.io/2016/09/18
 - oh-my-posh
 - fzf
 - bat
+- eza
 - pnpm (?)
 
 
