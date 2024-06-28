@@ -102,3 +102,6 @@ alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+# ********** ZELLIJ **********
+# Autostart zsh in zellij
+eval "$(zellij setup --generate-auto-start zsh)"
