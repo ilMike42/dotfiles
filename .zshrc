@@ -104,4 +104,4 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # ********** ZELLIJ **********
 # Autostart zsh in zellij
-eval "$(zellij setup --generate-auto-start zsh)"
+# eval "$(zellij setup --generate-auto-start zsh)"
