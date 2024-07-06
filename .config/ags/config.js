@@ -34,8 +34,11 @@ const Workspaces = () => Widget.EventBox({
         })),
 
         // remove this setup hook if you want fixed number of buttons
-        setup: self => self.hook(hyprland, () => self.children.forEach(btn => {
+        setup: self => self.hook(hyprland, () => self.children.forEach((btn, index) => {
             btn.visible = hyprland.workspaces.some(ws => ws.id === btn.attribute);
+            if (index === 0) {
+                btn.label = ''
+            }
         })),
     }),
 })
@@ -63,6 +66,28 @@ const sysTray = Widget.Box({
     children: systemtray.bind('items').as(i => i.map(SysTrayItem))
 })
 
+//********** Power Profiles **********
+const powerProfiles = await Service.import('powerprofiles');
+
+const getProfileIcon = (profile) => {
+    switch (profile) {
+        case 'power-saver':
+            return '󰡳'
+        case 'balanced':
+            return '󰡵'
+        case 'performance':
+            return '󰡴'
+    }
+
+    return ''
+}
+
+const PowerProfiles = Widget.Button({
+    label: powerProfiles.bind('active_profile').as(p => getProfileIcon(p))
+})
+
+
+
 const Bar = (/** @type {number} */ monitor) => Widget.Window({
     monitor,
     name: `bar${monitor}`,
@@ -75,9 +100,11 @@ const Bar = (/** @type {number} */ monitor) => Widget.Window({
             label: time.bind(),
         }),
         end_widget: Widget.Box({
+            hpack: 'end',
             children: [
                 sysTray,
-                Battery()
+                Battery(),
+                PowerProfiles
             ]
         })
     }),
