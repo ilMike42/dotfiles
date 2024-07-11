@@ -1,0 +1,63 @@
+button {
+  border-radius: 18px;
+  min-height: 10px;
+  margin: 3px 6px; }
+
+button:first-child {
+  margin-left: 3px; }
+
+button:last-child {
+  margin-right: 3px; }
+
+.rofi {
+  background-color: #b7bdf8;
+  color: #363a4f; }
+
+.rofi:hover {
+  background-color: #8087a2; }
+
+.date-label {
+  font-size: 16pt; }
+
+.start-widget {
+  margin: 6px 8px; }
+
+.end-widget {
+  margin: 6px 8px; }
+
+.workspaces {
+  background-color: #363a4f;
+  border-radius: 18px;
+  font-size: 8pt; }
+
+.workspace.active {
+  background-color: #c6a0f6;
+  color: #cad3f5; }
+
+.systray {
+  background-color: #363a4f;
+  border-radius: 18px;
+  font-size: 11pt; }
+  .systray button {
+    background-color: rgba(36, 39, 58, 0);
+    border-radius: 18px; }
+
+.widget-menu {
+  background-color: #363a4f;
+  border-radius: 18px; }
+
+.brightness {
+  margin: 0px 5px;
+  border-radius: 18px; }
+
+.power-profiles.power-saver {
+  background-color: #a6da95;
+  color: #494d64; }
+
+.power-profiles.performance {
+  background-color: #f5a97f;
+  color: #494d64; }
+
+.power-button {
+  margin-left: 0px;
+  background-color: #ed8796; }

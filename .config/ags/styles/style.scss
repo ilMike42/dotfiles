@@ -1,0 +1,88 @@
+@import "macchiato.scss";
+
+
+button {
+  border-radius: 18px;
+  min-height: 10px;
+  margin: 3px 6px;
+}
+
+button:first-child {
+  margin-left: 3px;
+}
+
+button:last-child {
+  margin-right: 3px;
+}
+
+.rofi {
+  background-color: $lavender;
+  color: $surface0;
+}
+
+.rofi:hover {
+  background-color: $overlay1;
+}
+
+.date-label {
+  font-size: 16pt;
+}
+
+
+.start-widget {
+  margin: 6px 8px;
+}
+
+.end-widget {
+  margin: 6px 8px;
+}
+
+
+.workspaces {
+  background-color: $surface0;
+  border-radius: 18px;
+  font-size: 8pt;
+}
+
+.workspace.active {
+  background-color: $mauve;
+  color: $text;
+}
+
+.systray {
+  background-color: $surface0;
+  border-radius: 18px;
+  font-size: 11pt;
+
+  button {
+    background-color: rgba($color: $base, $alpha: 0);
+    border-radius: 18px;
+  }
+}
+
+
+.widget-menu {
+  background-color: $surface0;
+  border-radius: 18px;
+
+}
+
+.brightness {
+  margin: 0px 5px;
+  border-radius: 18px;
+}
+
+.power-profiles.power-saver {
+  background-color: $green;
+  color: $surface1;
+}
+
+.power-profiles.performance {
+  background-color: $peach;
+  color: $surface1;
+}
+
+.power-button {
+  margin-left: 0px;
+  background-color: $red;
+}
