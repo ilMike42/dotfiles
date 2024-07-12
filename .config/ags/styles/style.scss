@@ -5,6 +5,7 @@ button {
   border-radius: 18px;
   min-height: 10px;
   margin: 3px 6px;
+  font-size: 12pt;
 }
 
 button:first-child {
@@ -41,12 +42,12 @@ button:last-child {
 .workspaces {
   background-color: $surface0;
   border-radius: 18px;
-  font-size: 8pt;
+  font-size: 12pt;
 }
 
 .workspace.active {
   background-color: $mauve;
-  color: $text;
+  color: $base;
 }
 
 .systray {

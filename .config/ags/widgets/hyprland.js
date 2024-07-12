@@ -32,6 +32,14 @@ const Workspaces = () => Widget.EventBox({
                 btn.label = ''
             }
 
+            if (index === 2) {
+                btn.label = ''
+            }
+
+            if (index === 3) {
+                btn.label = ''
+            }
+
 
             btn.toggleClassName('active', hyprland.active.workspace.id === index + 1)
         })),

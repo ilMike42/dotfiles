@@ -1,7 +1,8 @@
 button {
   border-radius: 18px;
   min-height: 10px;
-  margin: 3px 6px; }
+  margin: 3px 6px;
+  font-size: 12pt; }
 
 button:first-child {
   margin-left: 3px; }
@@ -28,11 +29,11 @@ button:last-child {
 .workspaces {
   background-color: #363a4f;
   border-radius: 18px;
-  font-size: 8pt; }
+  font-size: 12pt; }
 
 .workspace.active {
   background-color: #c6a0f6;
-  color: #cad3f5; }
+  color: #24273a; }
 
 .systray {
   background-color: #363a4f;
