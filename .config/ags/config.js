@@ -1,4 +1,5 @@
 import Bar from "./panels/bar.js"
+import { NotificationPopups } from "./panels/notificationPopups.js"
 
 Utils.monitorFile(
     // directory that contains the scss files
@@ -20,6 +21,9 @@ Utils.monitorFile(
 )
 
 App.config({
-    windows: [Bar(0)],
+    windows: [
+        NotificationPopups(),
+        Bar(0),
+    ],
     style: `${App.configDir}/style.css`
 })
