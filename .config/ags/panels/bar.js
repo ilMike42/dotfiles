@@ -15,7 +15,7 @@ const MenuBox = () => Widget.Box({
         Brightness(),
         Volume(),
         Battery(),
-        PowerProfiles(),
+        // PowerProfiles(),
     ]
 })
 

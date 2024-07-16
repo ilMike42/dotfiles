@@ -69,7 +69,25 @@ button:last-child {
 
 .brightness {
   margin: 0px 5px;
+  padding: 0px 12px;
   border-radius: 18px;
+}
+
+.volume {
+  margin: 0px 5px;
+  padding: 0px 12px;
+  border-radius: 18px;
+}
+
+
+.battery.power-saver {
+  background-color: $green;
+  color: $surface1;
+}
+
+.battery.performance {
+  background-color: $peach;
+  color: $surface1;
 }
 
 .power-profiles.power-saver {

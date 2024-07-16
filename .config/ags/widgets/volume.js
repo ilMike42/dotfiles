@@ -13,7 +13,7 @@ const VolumeIcon = (volume, is_muted) => {
 }
 
 const VolumeLabel = () => {
-    return Utils.merge([audio.speaker.bind('volume'), audio.speaker.bind('is_muted')], (volume, is_muted) => `${VolumeIcon(volume, is_muted)}   ${Math.floor(volume * 100)}%`)
+    return Utils.merge([audio.speaker.bind('volume'), audio.speaker.bind('is_muted')], (volume, is_muted) => `${VolumeIcon(volume, is_muted)}    ${Math.floor(volume * 100)}%`)
 }
 
 const Volume = () => Widget.Box({

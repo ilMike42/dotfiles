@@ -49,7 +49,21 @@ button:last-child {
 
 .brightness {
   margin: 0px 5px;
+  padding: 0px 12px;
   border-radius: 18px; }
+
+.volume {
+  margin: 0px 5px;
+  padding: 0px 12px;
+  border-radius: 18px; }
+
+.battery.power-saver {
+  background-color: #a6da95;
+  color: #494d64; }
+
+.battery.performance {
+  background-color: #f5a97f;
+  color: #494d64; }
 
 .power-profiles.power-saver {
   background-color: #a6da95;
