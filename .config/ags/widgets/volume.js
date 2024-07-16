@@ -2,10 +2,24 @@
 const audio = await Service.import('audio');
 let volumeEnabled = Variable(false);
 
+const VolumeIcon = (volume, is_muted) => {
+    const percent_volume = Math.floor(volume * 100);
+
+    if (is_muted || percent_volume === 0) return '';
+
+    if (percent_volume < 50) return '';
+
+    return '';
+}
+
+const VolumeLabel = () => {
+    return Utils.merge([audio.speaker.bind('volume'), audio.speaker.bind('is_muted')], (volume, is_muted) => `${VolumeIcon(volume, is_muted)}   ${Math.floor(volume * 100)}%`)
+}
+
 const Volume = () => Widget.Box({
     children: [
         Widget.Button({
-            label: audio.speaker.bind('volume').as(v => `  ${Math.floor(v * 100)} %`),
+            label: VolumeLabel(),
             on_primary_click: () => volumeEnabled.value = !volumeEnabled.value
         }),
         Widget.Revealer({
