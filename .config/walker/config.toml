@@ -1,0 +1,73 @@
+[builtins]
+[builtins.applications]
+actions = true
+prioritize_new = true
+
+[builtins.clipboard]
+image_height = 300.0
+max_entries = 50.0
+switcher_only = true
+
+[builtins.commands]
+switcher_only = true
+
+[builtins.emojis]
+history = true
+switcher_only = true
+typeahead = true
+
+[builtins.finder]
+switcher_only = true
+
+[builtins.hyprland]
+context_aware_history = true
+
+[builtins.runner]
+generic_entry = false
+history = true
+typeahead = true
+
+[builtins.ssh]
+history = true
+switcher_only = true
+
+[builtins.switcher]
+prefix = '/'
+
+[builtins.websearch]
+engines = ['google']
+
+[list]
+always_show = true
+fixed_height = false
+height = 300.0
+margin_top = 10.0
+max_entries = 50.0
+scrollbar_policy = 'automatic'
+show_initial_entries = true
+width = 400.0
+
+[search]
+delay = 0.0
+force_keyboard_focus = true
+history = true
+icons = true
+placeholder = 'Search...'
+
+[ui]
+fullscreen = false
+horizontal = 'center'
+ignore_exclusive = true
+orientation = 'vertical'
+vertical = 'start'
+width = 400.0
+
+[ui.anchors]
+top = true
+
+[ui.icons]
+image_size = 150.0
+size = 38.0
+
+[ui.margins]
+top = 200.0

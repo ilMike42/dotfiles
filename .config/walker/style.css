@@ -1,0 +1,99 @@
+@import url('./styles/catpuccin-macchiato.css');
+
+* {
+  /* color: @text; */
+}
+
+#window {
+  background: none;
+}
+
+#box {
+  background: @base;
+  padding: 10px;
+  border-radius: 8px;
+  border-style: solid;
+  border-color: @mauve;
+  border-width: 1px;
+}
+
+#password {
+  outline: none;
+  outline-width: 0px;
+  border-radius: 0;
+  box-shadow: none;
+  background: @mantle;
+}
+
+#searchwrapper {}
+
+#search,
+#typeahead {
+  border-radius: 0;
+  outline: none;
+  outline-width: 0px;
+  box-shadow: none;
+  border-bottom: none;
+  border: none;
+  background: @crust;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-radius: 2px;
+}
+
+#spinner {
+  opacity: 0;
+}
+
+#spinner.visible {
+  opacity: 1;
+}
+
+#typeahead {
+  background: none;
+  opacity: 0.5;
+}
+
+#search placeholder {
+  opacity: 0.5;
+}
+
+#list {}
+
+row:selected {
+  background: @mantle;
+}
+
+.item {
+  padding: 5px;
+  border-radius: 2px;
+}
+
+.icon {
+  padding-right: 5px;
+}
+
+.textwrapper {}
+
+.label {}
+
+.sub {
+  opacity: 0.5;
+  color: @subtext1;
+}
+
+.activationlabel {
+  opacity: 0.25;
+}
+
+.activation .activationlabel {
+  opacity: 1;
+}
+
+.activation .textwrapper,
+.activation .icon,
+.activation .search {
+  opacity: 0.5;
+}
