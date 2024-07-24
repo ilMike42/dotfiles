@@ -1,7 +1,8 @@
+import { Notification } from "../types/service/notifications"
+
 const notifications = await Service.import("notifications")
 
-/** @param {import('resource:///com/github/Aylur/ags/service/notifications.js').Notification} n */
-function NotificationIcon({ app_entry, app_icon, image }) {
+function NotificationIcon({ app_entry, app_icon, image }: Notification) {
     if (image) {
         return Widget.Box({
             css: `background-image: url("${image}");`
@@ -23,8 +24,7 @@ function NotificationIcon({ app_entry, app_icon, image }) {
     })
 }
 
-/** @param {import('resource:///com/github/Aylur/ags/service/notifications.js').Notification} n */
-function Notification(n) {
+function NotificationPopup(n: Notification) {
     const icon = Widget.Box({
         vpack: "start",
         class_name: "icon",
@@ -92,19 +92,19 @@ function Notification(n) {
 export function NotificationPopups(monitor = 0) {
     const list = Widget.Box({
         vertical: true,
-        children: notifications.popups.map(Notification),
+        children: notifications.popups.map(NotificationPopup),
         setup: () => {
             notifications.popupTimeout = 3500
         }
     })
 
-    function onNotified(_, /** @type {number} */ id) {
+    function onNotified(_, id: number) {
         const n = notifications.getNotification(id)
         if (n)
-            list.children = [Notification(n), ...list.children]
+            list.children = [NotificationPopup(n), ...list.children]
     }
 
-    function onDismissed(_, /** @type {number} */ id) {
+    function onDismissed(_, id: number) {
         list.children.find(n => n.attribute.id === id)?.destroy()
     }
 

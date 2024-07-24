@@ -2,7 +2,7 @@
 const audio = await Service.import('audio');
 let volumeEnabled = Variable(false);
 
-const VolumeIcon = (volume, is_muted) => {
+const VolumeIcon = (volume: number, is_muted: boolean | null) => {
     const percent_volume = Math.floor(volume * 100);
 
     if (is_muted || percent_volume === 0) return '';

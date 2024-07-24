@@ -1,12 +1,12 @@
-import Battery from "../widgets/battery.js"
-import Brightness from "../widgets/brightness.js"
-import DateTime from "../widgets/date-time.js"
-import Workspaces from "../widgets/hyprland.js"
-import Power from "../widgets/power-button.js"
-import PowerProfiles from "../widgets/power-profiles.js"
-import Rofi from "../widgets/rofi.js"
-import SysTray from "../widgets/system-tray.js"
-import Volume from "../widgets/volume.js"
+import Battery from "../widgets/battery"
+import Brightness from "../widgets/brightness"
+import DateTime from "../widgets/date-time"
+import Workspaces from "../widgets/hyprland"
+import Power from "../widgets/power-button"
+import PowerProfiles from "../widgets/power-profiles"
+import Rofi from "../widgets/rofi"
+import SysTray from "../widgets/system-tray"
+import Volume from "../widgets/volume"
 
 //********** Menu box **********
 const MenuBox = () => Widget.Box({
@@ -47,7 +47,7 @@ const EndWidget = () => Widget.Box({
     ]
 })
 
-const Bar = (/** @type {number} */ monitor) => Widget.Window({
+const Bar = (monitor: number) => Widget.Window({
     monitor,
     name: `bar${monitor}`,
     anchor: ['top', 'left', 'right'],

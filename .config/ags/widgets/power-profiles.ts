@@ -1,7 +1,7 @@
 //********** Power Profiles **********
 const powerProfiles = await Service.import('powerprofiles');
 
-const getProfileIcon = (profile) => {
+const getProfileIcon = (profile: string) => {
     switch (profile) {
         case 'power-saver':
             return '󰡳'
@@ -14,7 +14,7 @@ const getProfileIcon = (profile) => {
     return ''
 }
 
-const setPowerProfile = (powerProfile) => {
+const setPowerProfile = (powerProfile: string) => {
     Utils.exec(`powerprofilesctl set ${powerProfile}`)
 }
 
@@ -32,7 +32,7 @@ const setNextPowerProfile = () => {
 const PowerProfiles = () => Widget.Button({
     class_name: 'power-profiles',
     label: powerProfiles.bind('active_profile').as(p => getProfileIcon(p)),
-    onPrimaryClick: (_, event) => {
+    onPrimaryClick: () => {
         setNextPowerProfile();
     },
     setup: self => self.hook(powerProfiles, () => {

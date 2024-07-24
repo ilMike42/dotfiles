@@ -1,5 +1,5 @@
 //********** Brightness **********
-import brightness from './../services/brightness.js'
+import brightness from './../services/brightness'
 let brightnessEnabled = Variable(false);
 
 const Brightness = () => Widget.Box({
