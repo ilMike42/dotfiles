@@ -95,7 +95,7 @@ _fzf_comprun() {
 
 
 # ********** EZA **********
-alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
+alias lsa="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
@@ -105,3 +105,10 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # ********** ZELLIJ **********
 # Autostart zsh in zellij
 # eval "$(zellij setup --generate-auto-start zsh)"
+
+# bun completions
+[ -s "/home/ilmike/.bun/_bun" ] && source "/home/ilmike/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
