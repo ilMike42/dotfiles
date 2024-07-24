@@ -10,25 +10,20 @@ const VolumeIconText = (volume: number, is_muted: boolean | null) => {
     return '';
 }
 
-const VolumeIcon = () => Widget.Label({
-    label: Utils.merge(
-        [audio.speaker.bind('volume'), audio.speaker.bind('is_muted')],
-        VolumeIconText
-    )
+const VolumeIcon = (volume: number, is_muted: boolean) => Widget.Label({
+    label: VolumeIconText(volume, is_muted)
 })
 
 
-const VolumeText = () => audio.speaker.bind('volume').as(volume => `${Math.floor(volume * 100)}%`)
-
-const VolumeLabel = () => Widget.Label({
-    label: VolumeText()
+const VolumeLabel = (volume: number) => Widget.Label({
+    label: `${Math.floor(volume * 100)}%`
 })
 
-const VolumeBar = () => Widget.LevelBar({
+const VolumeBar = (volume: number) => Widget.LevelBar({
     class_name: 'osd-bar',
     widthRequest: 100,
     heightRequest: 20,
-    value: audio.speaker.bind("volume").as(p => p),
+    value: volume,
 })
 
 // TODO: change hierarchy (too much functions maybe) and fix styling
@@ -36,11 +31,13 @@ const VolumeBox = () => Widget.Box({
     class_name: 'box',
     vertical: true,
     spacing: 10,
-    children: [
-        VolumeIcon(),
-        VolumeLabel(),
-        VolumeBar()
-    ]
+    children: Utils.merge(
+        [audio.speaker.bind('volume'), audio.speaker.bind('is_muted')],
+        (volume: number, is_muted: boolean) => [
+            VolumeIcon(volume, is_muted),
+            VolumeLabel(volume),
+            VolumeBar(volume)
+        ])
 })
 
 // TODO: write better and change names
