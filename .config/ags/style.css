@@ -10,6 +10,10 @@ button:first-child {
 button:last-child {
   margin-right: 3px; }
 
+.bar {
+  background-color: #24273a;
+  border-radius: 24px; }
+
 .start-button {
   background-color: #b7bdf8;
   color: #363a4f; }
@@ -18,7 +22,7 @@ button:last-child {
   background-color: #8087a2; }
 
 .date-label {
-  font-size: 16pt; }
+  font-size: 14pt; }
 
 .start-widget {
   margin: 6px 8px; }
@@ -38,7 +42,7 @@ button:last-child {
 .systray {
   background-color: #363a4f;
   border-radius: 18px;
-  font-size: 11pt; }
+  font-size: 8pt; }
   .systray button {
     background-color: rgba(36, 39, 58, 0);
     border-radius: 18px; }

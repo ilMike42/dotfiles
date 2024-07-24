@@ -15,6 +15,11 @@ button:last-child {
   margin-right: 3px;
 }
 
+.bar {
+  background-color: $base;
+  border-radius: 24px;
+}
+
 .start-button {
   background-color: $lavender;
   color: $surface0;
@@ -25,7 +30,7 @@ button:last-child {
 }
 
 .date-label {
-  font-size: 16pt;
+  font-size: 14pt;
 }
 
 
@@ -52,7 +57,7 @@ button:last-child {
 .systray {
   background-color: $surface0;
   border-radius: 18px;
-  font-size: 11pt;
+  font-size: 8pt;
 
   button {
     background-color: rgba($color: $base, $alpha: 0);
