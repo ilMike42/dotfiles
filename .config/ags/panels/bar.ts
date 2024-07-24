@@ -3,8 +3,7 @@ import Brightness from "../widgets/brightness"
 import DateTime from "../widgets/date-time"
 import Workspaces from "../widgets/hyprland"
 import Power from "../widgets/power-button"
-import PowerProfiles from "../widgets/power-profiles"
-import Rofi from "../widgets/rofi"
+import StartButton from "../widgets/start-button"
 import SysTray from "../widgets/system-tray"
 import Volume from "../widgets/volume"
 
@@ -15,7 +14,6 @@ const MenuBox = () => Widget.Box({
         Brightness(),
         Volume(),
         Battery(),
-        // PowerProfiles(),
     ]
 })
 
@@ -24,7 +22,7 @@ const StartWidget = () => Widget.Box({
     class_name: 'start-widget',
     spacing: 5,
     children: [
-        Rofi(),
+        StartButton(),
         Workspaces()
     ]
 })

@@ -10,11 +10,11 @@ button:first-child {
 button:last-child {
   margin-right: 3px; }
 
-.rofi {
+.start-button {
   background-color: #b7bdf8;
   color: #363a4f; }
 
-.rofi:hover {
+.start-button:hover {
   background-color: #8087a2; }
 
 .date-label {

@@ -1,21 +1,41 @@
 import { Workspace } from "../types/service/hyprland";
 
+enum WorkspaceEnum {
+    Firefox = 1,
+    Term,
+    Obsidian,
+    Spotify,
+    Kodi = 10
+}
+
 //********** Hyprland **********
 const hyprland = await Service.import('hyprland')
 
-// const focusedTitle = Widget.Label({
-//     label: hyprland.active.client.bind('title'),
-//     visible: hyprland.active.client.bind('address')
-//         .as(addr => !!addr),
-// })
-
 const dispatch = (ws: number) => hyprland.messageAsync(`dispatch workspace ${ws}`);
+
+const workspaceIcon = (workspaceId: number) => {
+    switch (workspaceId) {
+        case WorkspaceEnum.Firefox:
+            return '';
+        case WorkspaceEnum.Term:
+            return '';
+        case WorkspaceEnum.Obsidian:
+            return '';
+        case WorkspaceEnum.Spotify:
+            return '';
+        case WorkspaceEnum.Kodi:
+            return '󰌔';
+
+        default:
+            return `${workspaceId}`;
+    }
+}
 
 const getWorkspaceButton = (workspaceId: number) => {
     return Widget.Button({
         class_name: 'workspace',
         attribute: workspaceId,
-        label: `${workspaceId}`,
+        label: workspaceIcon(workspaceId),
         onClicked: () => dispatch(workspaceId),
         // width_request: 70
     });
@@ -27,35 +47,20 @@ const getWorkspaces = (workspaces: Workspace[]) => {
         .map(w => getWorkspaceButton(w.id));
 }
 
+const workspacesSignal = Utils.watch(getWorkspaces(hyprland.workspaces), [
+    [hyprland, 'workspace-added'],
+    [hyprland, 'workspace-removed']
+], () => {
+    return getWorkspaces(hyprland.workspaces)
+});
+
 
 
 const Workspaces = () => Widget.EventBox({
     class_name: 'workspaces',
     child: Widget.Box({
-        children: hyprland.bind('workspaces').as(getWorkspaces),
+        children: workspacesSignal,
         setup: self => self.hook(hyprland, () => self.children.forEach((btn) => {
-
-            if (btn.attribute === 1) {
-                btn.label = ''
-            }
-
-            if (btn.attribute === 2) {
-                btn.label = ''
-            }
-
-            if (btn.attribute === 3) {
-                btn.label = ''
-            }
-
-            if (btn.attribute === 4) {
-                btn.label = ''
-            }
-
-            if (btn.attribute === 10) {
-                btn.label = '󰌔'
-            }
-
-
             btn.toggleClassName('active', hyprland.active.workspace.id === btn.attribute)
         })),
     }),
