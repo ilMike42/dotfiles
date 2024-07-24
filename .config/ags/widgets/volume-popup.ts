@@ -51,16 +51,20 @@ const revealer = Widget.Revealer({
     transitionDuration: 1000,
     transition: 'crossfade',
     child: VolumeBox(),
-    setup: self => self.hook(audio, self => {
-        self.reveal_child = true;
-        clearTimeout(revealerTimer);
-        revealerTimer = setTimeout(
-            () => {
-                self.reveal_child = false;
-            },
-            1500
-        )
-    })
+    setup: self => self.hook(
+        audio.speaker,
+        self => {
+            self.reveal_child = true;
+            clearTimeout(revealerTimer);
+            revealerTimer = setTimeout(
+                () => {
+                    self.reveal_child = false;
+                },
+                1500
+            )
+        },
+        "notify::volume"
+    )
 })
 
 const VolumePopup = (monitor: number) => Widget.Window({
