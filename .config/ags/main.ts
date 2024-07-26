@@ -1,13 +1,11 @@
 import Bar from "./panels/bar"
 import { NotificationPopups } from "./panels/notificationPopups"
-import BrightnessPopup from "./widgets/brightness-popup"
-import VolumePopup from "./widgets/volume-popup"
+import OSD from "./widgets/osd/osd"
 
 
 App.config({
 	windows: [
-		VolumePopup(0),
-		BrightnessPopup(0),
+		OSD(0),
 		NotificationPopups(),
 		Bar(0)
 	],
