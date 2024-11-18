@@ -1,115 +1,5 @@
-#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
-
-version = 2
+version = 3
 final_space = true
-
-[[blocks]]
-  type = 'prompt'
-  alignment = 'left'
-
-  [[blocks.segments]]
-    type = 'os'
-    style = 'diamond'
-    powerline_symbol = ''
-    foreground = 'p:wight'
-    background = 'p:blue'
-    leading_diamond = ''
-    template = '{{.Icon}} '
-
-  [[blocks.segments]]
-    type = 'session'
-    style = 'diamond'
-    powerline_symbol = ''
-    foreground = 'p:text'
-    background = 'p:blue'
-    template = '{{ .UserName }}'
-
-  [[blocks.segments]]
-    type = 'path'
-    style = 'powerline'
-    powerline_symbol = ''
-    foreground = 'p:text'
-    background = 'p:pink'
-    template = ' {{ .Path }}'
-
-    [blocks.segments.properties]
-      folder_icon = '....'
-      home_icon = '~'
-      style = 'agnoster_short'
-
-  [[blocks.segments]]
-    type = 'git'
-    style = 'powerline'
-    powerline_symbol = ''
-    foreground = 'p:text'
-    background = 'p:lavender'
-    template = " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}"
-
-
-    
-    [blocks.segments.properties]
-      branch_max_length = 25
-      fetch_status = true
-      fetch_upstream_icon = true
-      branch_icon = ' '
-      cherry_pick_icon = ' '
-      commit_icon = ' '
-      merge_icon = ' '
-      no_commits_icon = ' '
-      rebase_icon = ' '
-      revert_icon = ' '
-      tag_icon = ' '
-
-
-[[blocks]]
-  type = 'rprompt'
-
-  [[blocks.segments]]
-    type = 'node'
-    style = 'powerline'
-    powerline_symbol = ''
-    invert_powerline = true
-    foreground = "#ffffff"
-    background = "#8800dd"
-    template = ' {{ .Full }} '
-
-    [blocks.segments.properties]
-      display_mode = 'files'
-      fetch_package_manager = false
-      home_enabled = false
-
-
-  [[blocks.segments]]
-    type = 'status'
-    style = 'powerline'
-    powerline_symbol = ''
-    invert_powerline = true
-    foreground = '#d3d7cf'
-    background = '#000000'
-    background_templates = ['{{ if gt .Code 0 }}#cc2222{{ end }}']
-    template = ' {{ if gt .Code 0 }}{{ reason .Code }}{{ else }}{{ end }} '
-
-    [blocks.segments.properties]
-      always_enabled = true
-
-
-  [[blocks.segments]]
-    type = 'time'
-    style = 'diamond'
-    foreground = '#fff'
-    background = '#2e9599'
-    background_templates = ['{{ if gt .Code 0 }}#D51111{{ end }}']
-    invert_powerline = true
-    trailing_diamond = ''
-    template = ' {{ .CurrentDate | date .Format }} '
-
-    [blocks.segments.properties]
-      time_format = '15:04:05'
-
-[transient_prompt]
-  background = "transparent"
-  foreground = "#FFFFFF"
-  template = "~> "
 
 [palette]
   blue = '#8AADF4'
@@ -119,4 +9,116 @@ final_space = true
   text = '#494D64'
   wight = '#FFFFFF'
 
+[transient_prompt]
+  template = '~> '
+  foreground = '#FFFFFF'
+  background = 'transparent'
 
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    leading_diamond = ''
+    template = '{{.Icon}} '
+    foreground = 'p:wight'
+    powerline_symbol = ''
+    background = 'p:blue'
+    type = 'os'
+    style = 'diamond'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
+  [[blocks.segments]]
+    template = '{{ .UserName }}'
+    foreground = 'p:text'
+    powerline_symbol = ''
+    background = 'p:blue'
+    type = 'session'
+    style = 'diamond'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+
+  [[blocks.segments]]
+    template = ' {{ .Path }}'
+    foreground = 'p:text'
+    powerline_symbol = ''
+    background = 'p:pink'
+    type = 'path'
+    style = 'powerline'
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+      folder_icon = '....'
+      home_icon = '~'
+      style = 'agnoster_short'
+
+  [[blocks.segments]]
+    template = ' {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}'
+    foreground = 'p:text'
+    powerline_symbol = ''
+    background = 'p:lavender'
+    type = 'git'
+    style = 'powerline'
+
+    [blocks.segments.properties]
+      branch_icon = ' '
+      branch_max_length = 25
+      cache_duration = 'none'
+      cherry_pick_icon = ' '
+      commit_icon = ' '
+      fetch_status = true
+      fetch_upstream_icon = true
+      merge_icon = ' '
+      no_commits_icon = ' '
+      rebase_icon = ' '
+      revert_icon = ' '
+      tag_icon = ' '
+
+[[blocks]]
+  type = 'rprompt'
+
+  [[blocks.segments]]
+    template = ' {{ .Full }} '
+    foreground = '#ffffff'
+    powerline_symbol = ''
+    background = '#8800dd'
+    type = 'node'
+    style = 'powerline'
+    invert_powerline = true
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+      display_mode = 'files'
+      fetch_package_manager = false
+      home_enabled = false
+
+  [[blocks.segments]]
+    template = ' {{ if gt .Code 0 }}{{ reason .Code }}{{ else }}{{ end }} '
+    foreground = '#d3d7cf'
+    powerline_symbol = ''
+    background = '#000000'
+    type = 'status'
+    style = 'powerline'
+    background_templates = ['{{ if gt .Code 0 }}#cc2222{{ end }}']
+    invert_powerline = true
+
+    [blocks.segments.properties]
+      always_enabled = true
+      cache_duration = 'none'
+
+  [[blocks.segments]]
+    trailing_diamond = ''
+    template = ' {{ .CurrentDate | date .Format }} '
+    foreground = '#fff'
+    background = '#2e9599'
+    type = 'time'
+    style = 'diamond'
+    background_templates = ['{{ if gt .Code 0 }}#D51111{{ end }}']
+    invert_powerline = true
+
+    [blocks.segments.properties]
+      cache_duration = 'none'
+      time_format = '15:04:05'
