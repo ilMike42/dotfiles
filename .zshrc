@@ -4,16 +4,15 @@
 # source antidote
 source ${ZDOTDIR:-~}/.antidote/antidote.zsh
 
+# ********** PATH **********
+export PATH=$PATH:/home/ilmike/.local/bin
+
 # initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
 antidote load
 
 # ********** OH MY POSH ***********
 # start oh my posh
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/my-catppuccin-theme.toml)"
-
-# ********** PATH **********
-export PATH=$PATH:/home/ilmike/.local/bin
-
 
 # ********** ZOXIDE **********
 eval "$(zoxide init zsh)"
