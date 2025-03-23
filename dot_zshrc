@@ -1,6 +1,10 @@
 # Created by newuser for 5.9
 
 # ********** ANTIDOTE **********
+# install antidote (if not installed)
+if [ ! -d ${ZDOTDIR:-~}/.antidote ]; then
+  git clone --depth=1 https://github.com/mattmc3/antidote.git ${ZDOTDIR:-~}/.antidote
+fi
 # source antidote
 source ${ZDOTDIR:-~}/.antidote/antidote.zsh
 
