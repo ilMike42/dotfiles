@@ -100,7 +100,8 @@ _fzf_comprun() {
 
 
 # ********** EZA **********
-alias lsa="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
+alias lsa="eza --color=always --long --grid --git --no-filesize --icons=always --no-time --no-user --no-permissions"
+alias lsl="eza -a --color=always --long --git --icons=always"
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
