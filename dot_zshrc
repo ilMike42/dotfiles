@@ -1,5 +1,3 @@
-# Created by newuser for 5.9
-
 # ********** ANTIDOTE **********
 # install antidote (if not installed)
 if [ ! -d ${ZDOTDIR:-~}/.antidote ]; then
@@ -48,23 +46,9 @@ autoload -Uz compinit && compinit
 # git
 source ~/.git_aliases.sh
 
-# dotfiles
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME' 
-alias s="kitten ssh"
-
-
-
-# ********** PNPM **********
-export PNPM_HOME="/home/ilmike/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-
 
 # ********** BAT **********
 export BAT_THEME="Catppuccin Macchiato"
-
 
 
 # ********** FZF **********
@@ -103,18 +87,16 @@ _fzf_comprun() {
 alias lsa="eza --color=always --long --grid --git --no-filesize --icons=always --no-time --no-user --no-permissions"
 alias lsl="eza -a --color=always --long --git --icons=always"
 
+# ********** YAZI ********
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# ********** ZELLIJ **********
-# Autostart zsh in zellij
-# eval "$(zellij setup --generate-auto-start zsh)"
-
-# bun completions
-[ -s "/home/ilmike/.bun/_bun" ] && source "/home/ilmike/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
